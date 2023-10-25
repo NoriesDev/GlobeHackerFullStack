@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.outer-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2.5em;
+    padding: 2.5em;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(234, 240, 242);
+}
+
+.container {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+
+
+.date {
+    font-style: italic;
+    font-size: smaller;
+}
+
+.author {
+    font-style: italic;
+}
+
+
+.img {
+    max-height: 40vh;
+    width: 30vw;
+    border-radius: 5px;
+    align-self: center;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    z-index: 0;
+    padding-right: 52%;
+
+}
+
+.float {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    color: #000000;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+
+.float:hover {
+    transform: scale(0.9);
+}
+
+.img:hover {
+    transform: scale(1.1);
+}
+
+.article {
+    overflow-y: hidden;
+    width: 50vw;
+    height: 19.8vh;
+}
+
+.rightCard {
+    max-height: 40vh;
+    max-width: 60vw;
+    padding: 1em;
+    padding-left: 40%;
+}
+
+
+.drop-btn {
+    background-color: #000000;
+    color: white;
+    margin-top: 0.8em;
+    padding: 0.8em;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    width: 50vw;
+    align-self: center;
+}
+
+.drop-btn:hover {
+    transform: scale(0.8);
+}
+
+
+@media screen and (max-width:480px) {
+    .outer-div {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 1em;
+        max-width: 95vw;
+        height: 80vh
+    }
+
+    .img {
+        padding: 0;
+        align-self: flex-start;
+        margin-top: -7vh;
+        height: 28vh;
+        width: auto;
+        transition: none;
+    }
+
+    .rightCard {
+        padding: 0;
+        margin-top: 22vh;
+        height: 25%;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .float {
+        padding: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .article {
+        width: auto;
+        overflow: hidden;
+    }
+}

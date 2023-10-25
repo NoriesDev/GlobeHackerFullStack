@@ -1,0 +1,70 @@
+.footer-container {
+    background-color: black;
+    padding: 4em 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    transition: fill 0.3s;
+}
+
+.social-icon:hover {
+    fill: #eee;
+}
+
+.footer-columns {
+    flex: 2;
+    display: flex;
+    gap: 2em;
+    justify-content: flex-start;
+    order: -1;
+}
+
+.top-places,
+.explore,
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.top-places h3,
+.explore h3,
+.footer-links h3 {
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+
+.top-places p,
+.explore p,
+.footer-links p {
+    color: #fff;
+    margin: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2em;
+    color: azure;
+    font-size: 0.8em;
+    /* Made the copyright text smaller */
+}

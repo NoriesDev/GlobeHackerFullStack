@@ -1,0 +1,21 @@
+.features-header-container {
+    width: 100vw;
+    height: 40vh;
+    background-image: url('/DavidCha.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features-header-text {
+    font-size: 1.2em;
+    /* Adjusted font size */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    /* Centered the text */
+    padding: 0 15px;
+    /* Adjusted padding for better spacing */
+}

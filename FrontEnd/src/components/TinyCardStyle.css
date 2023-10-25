@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+.tC-container {
+    display: flex;
+    justify-content: space-evenly;
+    color: #ffff;
+    padding: 0.8em;
+    margin: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    
+}
+
+.tC-title{
+    text-align: center;
+}
+
+.tC-img {
+    width: 18vw;
+    height: 20vh;
+    overflow: hidden;
+    align-self: center;
+    position: absolute;
+    z-index: 0;
+}
+
+.tC-rightCard {
+    max-width: 10vw;
+    padding: 2em;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.271);
+    transition: all 0.3s ease-in-out;
+    border-radius: 6px;
+}
+
+.tC-rightCard:hover{
+    transform: scale(0.9);
+}

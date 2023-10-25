@@ -1,0 +1,79 @@
+.CreatePostForm {
+    box-shadow: 5px 5px 5px rgb(234, 240, 242);
+    width: 85vw;
+    border-radius: 5px;
+    margin: 1em;
+    margin-left: 6%;
+    font-family: 'News Cycle', sans-serif;
+}
+
+.right-creBl {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1em;
+}
+
+.left-creBl {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1em;
+}
+
+.creBl-wrap {
+    display: flex;
+    justify-content: center;
+    width: 85vw;
+}
+
+.Fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    padding: 1em;
+}
+
+.headline {
+    margin-bottom: 1em;
+    font-size: x-large;
+}
+
+.l {
+    margin-top: 1em;
+    font-weight: 500;
+}
+
+.i {
+    width: 30vw;
+    height: 5vh;
+    border-radius: 6px;
+    font-family: 'News Cycle', sans-serif;
+    padding: 0.2em;
+    border: 1px solid #000;
+    margin-top: 1em;
+}
+
+.a-i {
+    width: 30vw;
+    height: 38%;
+    border-radius: 6px;
+    font-family: 'News Cycle', sans-serif;
+    padding: 0.2em;
+    border: 1px solid #000;
+    margin-top: 1em;
+}
+
+.createPostBtn {
+    color: #ffff;
+    background-color: #000;
+    font-size: 1em;
+    padding: 1em;
+    margin: 1em;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 40vw;
+    font-family: 'News Cycle', sans-serif;
+}

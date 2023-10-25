@@ -1,0 +1,53 @@
+.features-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0;
+    background-color: white;
+    color: #000;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 2em;
+}
+
+.feature-image {
+    max-width: 50%;
+    height: auto;
+}
+
+.text-content {
+    flex: 1;
+    padding-left: 2em;
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    max-width: 500px;
+    margin-bottom: 2em;
+}
+
+.explore-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.explore-btn:hover {
+    background-color: #333;
+}
