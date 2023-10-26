@@ -21,6 +21,7 @@ export default function TinyCardContainer() {
   
           setAllPosts(parsedPosts);
           console.log(parsedPosts);
+          setLoading(false);
         } catch (error) {
           console.error(error);
           setLoading(false);
