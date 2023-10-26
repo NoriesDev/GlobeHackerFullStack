@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
-  const[form, setForm] = useState({title: '', date: '', author:'', imageUrl: '', article: '', adventures: '', dining: '', shopping: ''})
+  const[form, setForm] = useState({title: '', date: '', author:'', imageurl: '', article: '', adventures: '', dining: '', shopping: ''})
   const navigate = useNavigate();
   const [formDataSent, setFormDataSent] = useState(false);
   
@@ -12,7 +12,7 @@ export default function CreatePost() {
   const handleChange = (e) => {
     setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
-  
+
   const handleSubmit = async (e) => {
     try {
       await fetch('http://localhost:8000/destinations')
@@ -55,7 +55,7 @@ export default function CreatePost() {
     </div>
     <div className='right-creBl'>
     <label className='l'  htmlFor="Image">Blog Image:</label>
-    <input className='i'  type="object" id="imageUrl" name="imageUrl" placeholder="Your image url here.." value={form.imageUrl} onChange={handleChange}/>
+    <input className='i'  type="object" id="imageUrl" name="imageUrl" placeholder="Your image url here.." value={form.imageurl} onChange={handleChange}/>
     <label className='l' htmlFor="text">Recommendations</label>
     <input className='i' type="text" id="dining" name="dining" placeholder="Restaurant: Ithaa Undersea Restaurant.." required value={form.recommendations} onChange={handleChange}/>
     <input className='i' type="text" id="adventures" name="adventures" placeholder="Activity: Snorkeling with Whale Sharks.." required value={form.recommendations} onChange={handleChange}/>
@@ -74,7 +74,7 @@ CreatePost.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
   author: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
   article: PropTypes.string,
   dining: PropTypes.string,
   adventures: PropTypes.string,

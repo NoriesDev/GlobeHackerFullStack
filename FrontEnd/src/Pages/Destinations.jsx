@@ -57,7 +57,7 @@ export default function Destinations() {
         />
       </div>
       </div>
-     {searchQuery ? ( 
+      {searchQuery ? ( 
         filteredPosts.map((post, index) => (
           <SmCard
             key={index}
@@ -65,20 +65,19 @@ export default function Destinations() {
             date={post.date}
             author={post.author}
             article={post.article}
-            imageUrl={post.imageUrl}
+            imageurl={post.imageurl}
             post={post}
           />
         ))
       ) : 
-( allPosts.map((post, index) => (
+(allPosts.map((post, index) => (
         <SmCard
           key={index}
-          id={index +1}
           title={post.title}
           date={post.date}
           author={post.author}
           article={post.article}
-          imageUrl={post.imageUrl}
+          imageurl={post.imageurl}
         />
       )))}
     </div>
@@ -90,6 +89,6 @@ Destinations.propTypes = {
   title: PropTypes.string,
   date: PropTypes.number,
   author: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
   article: PropTypes.string,
 };

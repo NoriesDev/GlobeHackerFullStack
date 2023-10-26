@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 
-export default function TinyCard( {title, imageUrl } ) {
+export default function TinyCard( {title, imageurl } ) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -12,7 +12,7 @@ export default function TinyCard( {title, imageUrl } ) {
 
 return (
     <div className="tC-container" onClick={handleClick}>
-      <img className="tC-img" src={imageUrl} alt='' />
+      <img className="tC-img" src={imageurl} alt='' />
       <div className='tC-rightCard'>
         <h3 className="tC-title">{title}</h3>
       </div>
@@ -22,5 +22,5 @@ return (
 
 TinyCard.propTypes = {
   title: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
 };

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import LgCard from './LgCard';
 
-export default function SmCard( { title, date, author, imageUrl , description,  article, } ) {
+export default function SmCard( { title, date, author, imageurl , description,  article, dining, adventures, shopping, index } ) {
   const [showFullArticle, setShowFullArticle] = useState(false);
   const toggleFullArticle = () => {
     setShowFullArticle(!showFullArticle);
@@ -12,10 +12,20 @@ export default function SmCard( { title, date, author, imageUrl , description,  
 return (
   <div className='outer-div'>
   {showFullArticle ? (
-    <LgCard/>
+    <LgCard             
+    key={index}
+    title={title}
+    date={date}
+    author={author}
+    article={article}
+    imageurl={imageurl}
+    dining={dining}
+    adventures={adventures}
+    shopping={shopping}
+    />
   ) : (
     <div className="container" onClick={toggleFullArticle}>
-      <img className="img" src={imageUrl} alt={description} />
+      <img className="img" src={imageurl} alt={description} />
       <div className='rightCard'>
         <h3 className="title">{title}</h3>
         <div className='float'>
@@ -38,7 +48,10 @@ SmCard.propTypes = {
   title: PropTypes.string,
   date: PropTypes.number,
   author: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
   description: PropTypes.string,
   article: PropTypes.string,
+  dining: PropTypes.string,
+  adventures: PropTypes.string,
+  shopping: PropTypes.string,
 };
