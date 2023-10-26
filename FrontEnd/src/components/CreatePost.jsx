@@ -1,17 +1,25 @@
 import './CreatePost.css'
 import {useState} from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
   const[form, setForm] = useState({title: '', date: '', author:'', imageUrl: '', article: '', adventures: '', dining: '', shopping: ''})
+  const navigate = useNavigate();
   const [formDataSent, setFormDataSent] = useState(false);
+  
+  
   const handleChange = (e) => {
     setForm((prev) => ({...prev, [e.target.name]: e.target.value}))
   }
+  
   const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
-      await // the imported fetch former contentful client(form);
+      await fetch('http://localhost:8000/destinations')
+      .then((response) => {
+        console.log('Data updated successfully:', response);
+      });
+      e.preventDefault();
       setFormDataSent(true);
     } catch (error) {
       console.error('Error submitting data:', error);
@@ -19,11 +27,12 @@ export default function CreatePost() {
   }
 
   const handleClick = async () => {
+    await handleSubmit();
     if (formDataSent) {
-      window.location.reload();
+      navigate('/destinations');
     } else {
       console.log('Data has not been sent yet.');
-    }
+    } 
   }
 
 
