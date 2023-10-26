@@ -4,20 +4,29 @@ import {useState, useEffect} from 'react';
 import './TinyContainerStyle.css';
 
 export default function TinyCardContainer() {
-    const [blogPosts, setBlogPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-  
+    const [allPosts, setAllPosts] = useState([]);
+
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const blogPostData = await // new fetch function here former contentful client();
-          setBlogPosts(blogPostData.items);
-          setLoading(false);
+          const getBlogData = await fetch(
+            'http://localhost:8000/destinations'
+          );
+          if (!getBlogData.ok)
+            throw new Error(
+              'The request failed with a status of ' + getBlogData.status
+            );
+          const parsedPosts = await getBlogData.json();
+  
+          setAllPosts(parsedPosts);
+          console.log(parsedPosts);
         } catch (error) {
           console.error(error);
           setLoading(false);
         }
       };
+  
       fetchData();
     }, []);
   
@@ -29,12 +38,12 @@ export default function TinyCardContainer() {
     <>
     <h3 className='grid-headline'>Find Amazing Travel Destinations:</h3>
     <div className="grid-container">
-     {blogPosts.map((post, index) => (
+     {allPosts.map((post, index) => (
         <TinyCard
           key={index}
-          title={post.fields.title}
-          article={post.fields.article}
-          imageUrl={post.fields.imageUrl}
+          title={post.title}
+          article={post.article}
+          imageUrl={post.imageUrl}
         />
       ))}
     </div>
