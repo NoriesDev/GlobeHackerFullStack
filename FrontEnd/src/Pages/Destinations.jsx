@@ -45,38 +45,40 @@ export default function Destinations() {
     <div>
       <div className="head-Desti">
         <div className="search-con">
-          <input
-            type="text"
-            placeholder="Search articles..."
-            className="search"
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </div>
+
+        <input
+          type="text"
+          placeholder="Search articles..."
+          className="search"
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
       </div>
-      {searchQuery
-        ? filteredPosts.map((post, index) => (
-            <SmCard
-              key={index}
-              title={post.title}
-              date={post.date}
-              author={post.author}
-              article={post.article}
-              imageUrl={post.imageUrl}
-              post={post}
-            />
-          ))
-        : allPosts.map((post, index) => (
-            <SmCard
-              key={index}
-              id={index + 1}
-              title={post.title}
-              date={post.date}
-              author={post.author}
-              article={post.article}
-              imageUrl={post.imageUrl}
-            />
-          ))}
+      </div>
+      {searchQuery ? ( 
+        filteredPosts.map((post, index) => (
+          <SmCard
+            key={index}
+            title={post.title}
+            date={post.date}
+            author={post.author}
+            article={post.article}
+            imageurl={post.imageurl}
+            post={post}
+          />
+        ))
+      ) : 
+(allPosts.map((post, index) => (
+        <SmCard
+          key={index}
+          title={post.title}
+          date={post.date}
+          author={post.author}
+          article={post.article}
+          imageurl={post.imageurl}
+        />
+      )))}
+
     </div>
   );
 }
@@ -85,6 +87,6 @@ Destinations.propTypes = {
   title: PropTypes.string,
   date: PropTypes.number,
   author: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
   article: PropTypes.string,
 };

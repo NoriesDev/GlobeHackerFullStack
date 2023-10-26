@@ -5,7 +5,7 @@ export default function LgCard({
   title,
   date,
   author,
-  imageUrl,
+  imageurl,
   article,
   dining,
   adventures,
@@ -22,7 +22,7 @@ export default function LgCard({
         <div className="Lg-article"> {article} </div>
       </div>
       <div className="Lg-Top-Section">
-        <img className="Lg-img" src={imageUrl} alt="" />
+        <img className="Lg-img" src={imageurl} alt="" />
         <ul className="LgList">
           <p className="li-title">You should:</p>
           <li className="li-items"> {dining} </li>
@@ -39,7 +39,7 @@ LgCard.propTypes = {
   title: PropTypes.string,
   date: PropTypes.number,
   author: PropTypes.string,
-  imageUrl: PropTypes.string,
+  imageurl: PropTypes.string,
   description: PropTypes.string,
   article: PropTypes.string,
   dining: PropTypes.string,

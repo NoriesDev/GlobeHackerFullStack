@@ -44,7 +44,7 @@ export default function TinyCardContainer() {
           key={index}
           title={post.title}
           article={post.article}
-          imageUrl={post.imageUrl}
+          imageurl={post.imageurl}
         />
       ))}
     </div>
