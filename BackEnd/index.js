@@ -17,10 +17,10 @@ server.get("/", (req, res) =>
 
 server.route("/destinations").get(getAllPosts).post(addNewPost);
 
-server.route("/Home").get((req, res) => {});
+server.route("/home").get((req, res) => {});
 
 server
-  .route("/Features")
+  .route("/features")
   .get((req, res) => {})
   .post((req, res) => {});
 
