@@ -1,7 +1,6 @@
-
 import SmCard from "../components/SmCard";
 import { useState, useEffect } from "react";
-import './DestinationsStyling.css'
+import "./DestinationsStyling.css";
 import PropTypes from "prop-types";
 
 export default function Destinations() {
@@ -9,15 +8,14 @@ export default function Destinations() {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-
   //fetching all data
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const getBlogData = await fetch('http://localhost:8000/destinations');
+        const getBlogData = await fetch("http://localhost:8000/destinations");
         if (!getBlogData.ok)
           throw new Error(
-            'The request failed with a status of ' + getBlogData.status
+            "The request failed with a status of " + getBlogData.status
           );
         const parsedPosts = await getBlogData.json();
 
@@ -43,11 +41,11 @@ export default function Destinations() {
     setSearchQuery(event.target.value);
   };
 
-
   return (
     <div>
       <div className="head-Desti">
         <div className="search-con">
+
         <input
           type="text"
           placeholder="Search articles..."
@@ -80,10 +78,10 @@ export default function Destinations() {
           imageurl={post.imageurl}
         />
       )))}
+
     </div>
   );
 }
-
 
 Destinations.propTypes = {
   title: PropTypes.string,
