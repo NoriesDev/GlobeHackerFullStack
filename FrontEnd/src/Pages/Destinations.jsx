@@ -1,43 +1,48 @@
 
 import SmCard from "../components/SmCard";
 import { useState, useEffect } from "react";
-import { getBlogPostData } from "../components/lib/contentfulClient";
 import './DestinationsStyling.css'
+import PropTypes from "prop-types";
 
 export default function Destinations() {
-  const [blogPosts, setBlogPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(true);
 
+
+  //fetching all data
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const blogPostData = await getBlogPostData();
-        setBlogPosts(blogPostData.items);
-        setLoading(false);
+        const getBlogData = await fetch('http://localhost:8000/destinations');
+        if (!getBlogData.ok)
+          throw new Error(
+            'The request failed with a status of ' + getBlogData.status
+          );
+        const parsedPosts = await getBlogData.json();
+
+        setAllPosts(parsedPosts);
+        console.log(parsedPosts);
       } catch (error) {
         console.error(error);
-        setLoading(false);
       }
     };
+
     fetchData();
   }, []);
 
+  //search for blogPost
   useEffect(() => {
-    const filtered = blogPosts.filter((post) =>
-      post.fields.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filtered = allPosts.filter((post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredPosts(filtered);
-  }, [searchQuery, blogPosts]);
+  }, [searchQuery]);
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
@@ -52,29 +57,39 @@ export default function Destinations() {
         />
       </div>
       </div>
-      {searchQuery ? ( 
+     {searchQuery ? ( 
         filteredPosts.map((post, index) => (
           <SmCard
             key={index}
-            title={post.fields.title}
-            date={post.fields.date}
-            author={post.fields.author}
-            article={post.fields.article}
-            imageUrl={post.fields.imageUrl}
+            title={post.title}
+            date={post.date}
+            author={post.author}
+            article={post.article}
+            imageUrl={post.imageUrl}
             post={post}
           />
         ))
-      ) : ( blogPosts.map((post, index) => (
+      ) : 
+( allPosts.map((post, index) => (
         <SmCard
           key={index}
-          title={post.fields.title}
-          date={post.fields.date}
-          author={post.fields.author}
-          article={post.fields.article}
-          imageUrl={post.fields.imageUrl}
-          post={post}
+          id={index +1}
+          title={post.title}
+          date={post.date}
+          author={post.author}
+          article={post.article}
+          imageUrl={post.imageUrl}
         />
       )))}
     </div>
   );
 }
+
+
+Destinations.propTypes = {
+  title: PropTypes.string,
+  date: PropTypes.number,
+  author: PropTypes.string,
+  imageUrl: PropTypes.string,
+  article: PropTypes.string,
+};

@@ -4,9 +4,8 @@ import { useState } from 'react';
 
 import LgCard from './LgCard';
 
-export default function SmCard( {title,date, author, imageUrl , description,  article, post} ) {
+export default function SmCard( {id, title, date, author, imageUrl , description,  article, post} ) {
   const [showFullArticle, setShowFullArticle] = useState(false);
-
   const toggleFullArticle = () => {
     setShowFullArticle(!showFullArticle);
   };
@@ -14,14 +13,15 @@ return (
   <div className='outer-div'>
   {showFullArticle ? (
     <LgCard
-      title={post.fields.title}
-      date={post.fields.date}
-      author={post.fields.author}
-      imageUrl={post.fields.imageUrl}
-      article={post.fields.article}
-      dining={post.fields.dining}
-      shopping={post.fields.shopping}
-      adventures={post.fields.adventures}
+      id={id}
+      title={post.title}
+      date={post.date}
+      author={post.author}
+      imageUrl={post.imageUrl}
+      article={post.article}
+      dining={post.dining}
+      shopping={post.shopping}
+      adventures={post.adventures}
     />
   ) : (
     <div className="container" onClick={toggleFullArticle}>
@@ -44,11 +44,14 @@ return (
 }
 
 SmCard.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
-  date: PropTypes.string,
+  date: PropTypes.number,
   author: PropTypes.string,
   imageUrl: PropTypes.string,
   description: PropTypes.string,
   article: PropTypes.string,
-  post: PropTypes.object,
+  dining: PropTypes.string,
+  shopping: PropTypes.string,
+  adventures: PropTypes.string,
 };
