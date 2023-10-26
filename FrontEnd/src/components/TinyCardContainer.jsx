@@ -11,7 +11,7 @@ export default function TinyCardContainer() {
       const fetchData = async () => {
         try {
           const getBlogData = await fetch(
-            'http://localhost:8000/destinations'
+            'https://globehackersserver.onrender.com/destinations'
           );
           if (!getBlogData.ok)
             throw new Error(
