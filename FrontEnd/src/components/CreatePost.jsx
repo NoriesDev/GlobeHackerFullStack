@@ -15,7 +15,7 @@ export default function CreatePost() {
 
   const handleSubmit = async (e) => {
     try {
-      await fetch('http://localhost:8000/destinations')
+      await fetch('https://globehackersserver.onrender.com/features')
       .then((response) => {
         console.log('Data updated successfully:', response);
       });

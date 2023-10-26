@@ -12,7 +12,7 @@ export default function Destinations() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const getBlogData = await fetch("http://localhost:8000/destinations");
+        const getBlogData = await fetch("https://globehackersserver.onrender.com/destinations");
         if (!getBlogData.ok)
           throw new Error(
             "The request failed with a status of " + getBlogData.status
