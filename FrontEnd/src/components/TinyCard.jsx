@@ -1,5 +1,7 @@
 import './TinyCardStyle.css';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from "prop-types";
+
 
 export default function TinyCard( {title, imageUrl } ) {
   const navigate = useNavigate();
@@ -18,3 +20,7 @@ return (
 );
 }
 
+TinyCard.propTypes = {
+  title: PropTypes.string,
+  imageUrl: PropTypes.string,
+};

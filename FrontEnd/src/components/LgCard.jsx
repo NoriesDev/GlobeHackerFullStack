@@ -1,5 +1,5 @@
 import "./Lg-Card-styling.css";
-
+import PropTypes from "prop-types";
 
 export default function LgCard({
   title,
@@ -34,3 +34,15 @@ export default function LgCard({
   );
 }
 
+LgCard.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  date: PropTypes.number,
+  author: PropTypes.string,
+  imageUrl: PropTypes.string,
+  description: PropTypes.string,
+  article: PropTypes.string,
+  dining: PropTypes.string,
+  shopping: PropTypes.string,
+  adventures: PropTypes.string,
+};
