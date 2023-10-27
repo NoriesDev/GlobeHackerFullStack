@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 export default function CreatePost() {
-  const[form, setForm] = useState({title: '', date: '', author:'', imageurl: '', article: '', adventures: '', dining: '', shopping: ''})
+ const[form, setForm] = useState({title: '', date: '', author:'', imageurl: '', article: '', adventures: '', dining: '', shopping: ''})
   const navigate = useNavigate();
   const [formDataSent, setFormDataSent] = useState(false);
   
@@ -14,34 +14,25 @@ export default function CreatePost() {
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch('https://globehackersserver.onrender.com/features', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json', 
-  },
-  body: JSON.stringify(form), 
-});
-if (response.ok) {
-  console.log('Data updated successfully:', response);
-  setFormDataSent(true);
-} else {
-  console.error('Failed to submit data.');
-}
-} catch (error) {
-console.error('Error submitting data:', error);
-}
-};
-
-  const handleClick = async () => {
-    await handleSubmit();
-    if (formDataSent) {
-      navigate('/destinations');
-    } else {
-      console.log('Data has not been sent yet.');
-    } 
-  }
-
+      await fetch('https://globehackersserver.onrender.com/features', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(form), 
+      }).then((response) => {
+        console.log('Data updated successfully:', response);
+      });
+      setFormDataSent(true);
+      setTimeout(() => navigate('/destinations'), 5000);
+  
+    } catch (error) {
+      formDataSent(false);
+      console.error('Error:', error);
+    }
+  };
 
     return (
         <>
@@ -71,7 +62,7 @@ console.error('Error submitting data:', error);
     <input className='i'  type="date" id="date" name="date" value={form.date} onChange={handleChange}/>
     </div>
     </div>
-    <input  className='createPostBtn' type="submit" value="Submit" onClick={handleClick}/>
+    <input  className='createPostBtn' type="submit" value="Submit" onSubmit={handleSubmit}/>
   </div>
 </form>
 </>
