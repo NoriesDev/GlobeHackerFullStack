@@ -7,7 +7,7 @@ const { getAllPosts, addNewPost } = require("./controllers/blogPostControll");
 const cors = require("cors");
 
 // Use CORS middleware before other middlewares and routes
-server.use(cors());
+server.use(cors('https://localhost:5173/features'));
 
 server.use(express.json());
 
@@ -15,14 +15,14 @@ server.get("/", (req, res) =>
   res.send(`<p>server is listening on port ${port}</p>`)
 );
 
-server.route("/destinations").get(getAllPosts).post(addNewPost);
-
-server.route("/home").get((req, res) => {});
+server.route("/destinations").get(getAllPosts);
+server.route("/home").get(getAllPosts);
 
 server
   .route("/features")
-  .get((req, res) => {})
-  .post((req, res) => {});
+  .get(getAllPosts)
+  .post(addNewPost);
+
 
 server.route("/About").get((req, res) => {});
 
