@@ -21,7 +21,7 @@ const getAllPosts = async (req, res) => {
       const {
         rows: [post],
       } = await dbPool.query(
-        'INSERT INTO blogPost ( title, date, author, article, imageurl, dining, adventures, shopping ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING *',
+        'INSERT INTO blogPost ( title, date, author, article, imageurl, dining, adventures, shopping ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING *;',
         [ title, date, author, article, imageurl, dining, adventures, shopping ]
       );
   
