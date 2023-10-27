@@ -7,7 +7,7 @@ const { getAllPosts, addNewPost } = require("./controllers/blogPostControll");
 const cors = require("cors");
 
 // Use CORS middleware before other middlewares and routes
-server.use(cors('https://localhost:5173/features'));
+server.use(cors());
 
 server.use(express.json());
 
