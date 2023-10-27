@@ -16,7 +16,8 @@ export default function TinyCardContainer() {
           if (!getBlogData.ok)
             throw new Error(
               'The request failed with a status of ' + getBlogData.status
-            );
+            )
+            setLoading(false);
           const parsedPosts = await getBlogData.json();
   
           setAllPosts(parsedPosts);

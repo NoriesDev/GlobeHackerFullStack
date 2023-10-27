@@ -15,16 +15,23 @@ export default function CreatePost() {
 
   const handleSubmit = async (e) => {
     try {
-      await fetch('https://globehackersserver.onrender.com/features')
-      .then((response) => {
-        console.log('Data updated successfully:', response);
-      });
-      e.preventDefault();
-      setFormDataSent(true);
-    } catch (error) {
-      console.error('Error submitting data:', error);
-    }
-  }
+      const response = await fetch('https://globehackersserver.onrender.com/features', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json', 
+  },
+  body: JSON.stringify(form), 
+});
+if (response.ok) {
+  console.log('Data updated successfully:', response);
+  setFormDataSent(true);
+} else {
+  console.error('Failed to submit data.');
+}
+} catch (error) {
+console.error('Error submitting data:', error);
+}
+};
 
   const handleClick = async () => {
     await handleSubmit();
@@ -55,11 +62,11 @@ export default function CreatePost() {
     </div>
     <div className='right-creBl'>
     <label className='l'  htmlFor="Image">Blog Image:</label>
-    <input className='i'  type="object" id="imageUrl" name="imageUrl" placeholder="Your image url here.." value={form.imageurl} onChange={handleChange}/>
+    <input className='i'  type="text" id="imageurl" name="imageurl" placeholder="Your image url here.." value={form.imageurl} onChange={handleChange}/>
     <label className='l' htmlFor="text">Recommendations</label>
-    <input className='i' type="text" id="dining" name="dining" placeholder="Restaurant: Ithaa Undersea Restaurant.." required value={form.recommendations} onChange={handleChange}/>
-    <input className='i' type="text" id="adventures" name="adventures" placeholder="Activity: Snorkeling with Whale Sharks.." required value={form.recommendations} onChange={handleChange}/>
-    <input className='i' type="text" id="shopping" name="shopping" placeholder="Market: Malé Local Market.." required value={form.recommendations} onChange={handleChange}/>
+    <input className='i' type="text" id="dining" name="dining" placeholder="Restaurant: Ithaa Undersea Restaurant.." required value={form.dining} onChange={handleChange}/>
+    <input className='i' type="text" id="adventures" name="adventures" placeholder="Activity: Snorkeling with Whale Sharks.." required value={form.adventures} onChange={handleChange}/>
+    <input className='i' type="text" id="shopping" name="shopping" placeholder="Market: Malé Local Market.." required value={form.shopping} onChange={handleChange}/>
     <label className='l'  htmlFor="date">Date:</label>
     <input className='i'  type="date" id="date" name="date" value={form.date} onChange={handleChange}/>
     </div>
