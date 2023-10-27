@@ -7,7 +7,7 @@ const { getAllPosts, addNewPost } = require("./controllers/blogPostControll");
 const cors = require("cors");
 
 // Use CORS middleware before other middlewares and routes
-server.use(cors());
+server.use(cors('https://globehackersfrontend-alx6.onrender.com/', 'https://globehackersfrontend-alx6.onrender.com/destinations', 'https://globehackersfrontend-alx6.onrender.com/features'));
 
 server.use(express.json());
 
@@ -20,8 +20,8 @@ server.route("/home").get(getAllPosts);
 
 server
   .route("/features")
-  .get(getAllPosts)
-  .post(addNewPost);
+  .post(addNewPost, (req, res) =>
+  res.send(`blogPost was added to DataBase`));
 
 
 server.route("/About").get((req, res) => {});

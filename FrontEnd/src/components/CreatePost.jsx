@@ -46,7 +46,7 @@ export default function CreatePost() {
     className='l' htmlFor="title">Blog Title</label>
     <input className='i' type="text" id="title" name="title" placeholder="Your Blog Title here.." required value={form.title} onChange={handleChange}/>
     <label  className='l'htmlFor="text">Blog Article </label>
-    <textarea  className='a-i' type="article" id="article" name="article" placeholder="Your Blog Article here.." required value={form.article} onChange={handleChange} />
+    <textarea  className='a-i' type="text" id="article" name="article" placeholder="Your Blog Article here.." required value={form.article} onChange={handleChange} />
    
     <label className='l'  htmlFor="name">Your Name:</label>
     <input  className='i' type="text" id="author" name="author" placeholder="Your Name here.." required value={form.author} onChange={handleChange}/>
